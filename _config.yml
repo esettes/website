@@ -4,7 +4,7 @@ description: >-
   Web personal para presentar perfil profesional, formacion, proyectos
   y publicaciones.
 baseurl: "/website"
-url: "esettes.github.io"
+url: "https://esettes.github.io"
 lang: es
 timezone: Europe/Madrid
 markdown: kramdown

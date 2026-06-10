@@ -1,15 +1,15 @@
 :root {
-  --bg: #f4efe6;
-  --bg-soft: #efe4d0;
-  --surface: rgba(255, 255, 255, 0.76);
-  --surface-strong: #fffdf8;
-  --text: #13212a;
-  --muted: #58626d;
-  --accent: #0b6e78;
-  --accent-strong: #084d55;
-  --accent-warm: #d77d3f;
-  --line: rgba(19, 33, 42, 0.12);
-  --shadow: 0 24px 60px rgba(12, 30, 38, 0.12);
+  --bg: #080a0f;
+  --bg-soft: #10131a;
+  --surface: rgba(20, 24, 32, 0.82);
+  --surface-strong: #1a202b;
+  --text: #eef3f6;
+  --muted: #a6b2bc;
+  --accent: #58d5c9;
+  --accent-strong: #96eee6;
+  --accent-warm: #ffb15f;
+  --line: rgba(238, 243, 246, 0.12);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
   --radius: 24px;
   --radius-sm: 18px;
   --max-width: 1120px;
@@ -31,9 +31,12 @@ body {
   font-family: var(--font-ui);
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(11, 110, 120, 0.18), transparent 28%),
-    radial-gradient(circle at 85% 10%, rgba(215, 125, 63, 0.18), transparent 20%),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    radial-gradient(circle at top left, rgba(88, 213, 201, 0.16), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(255, 177, 95, 0.14), transparent 20%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+  background-size: 42px 42px, 42px 42px, auto, auto, auto;
   line-height: 1.65;
 }
 
@@ -73,7 +76,7 @@ main {
   height: 320px;
   top: 110px;
   right: 6vw;
-  background: rgba(11, 110, 120, 0.12);
+  background: rgba(88, 213, 201, 0.11);
 }
 
 .page-background::after {
@@ -81,7 +84,7 @@ main {
   height: 240px;
   bottom: 10vh;
   left: 4vw;
-  background: rgba(215, 125, 63, 0.14);
+  background: rgba(255, 177, 95, 0.1);
 }
 
 .shell {
@@ -94,7 +97,7 @@ main {
   top: 0;
   z-index: 30;
   backdrop-filter: blur(18px);
-  background: rgba(244, 239, 230, 0.76);
+  background: rgba(8, 10, 15, 0.78);
   border-bottom: 1px solid var(--line);
 }
 
@@ -119,9 +122,9 @@ main {
   height: 3rem;
   border-radius: 20px;
   background: linear-gradient(135deg, var(--accent), var(--accent-warm));
-  color: #fff;
+  color: #071014;
   font-weight: 700;
-  box-shadow: 0 14px 30px rgba(11, 110, 120, 0.22);
+  box-shadow: 0 14px 30px rgba(88, 213, 201, 0.18);
 }
 
 .brand-copy {
@@ -159,7 +162,7 @@ main {
 .nav-link.is-active {
   color: var(--text);
   background: var(--surface-strong);
-  box-shadow: 0 8px 24px rgba(12, 30, 38, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
   transform: translateY(-1px);
 }
 
@@ -208,7 +211,7 @@ main {
   width: 220px;
   height: 220px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(215, 125, 63, 0.3), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 177, 95, 0.22), transparent 70%);
 }
 
 .hero-copy h1 {
@@ -243,7 +246,7 @@ main {
 }
 
 .accent-card {
-  background: linear-gradient(160deg, rgba(11, 110, 120, 0.94), rgba(8, 77, 85, 0.96));
+  background: linear-gradient(160deg, rgba(27, 56, 65, 0.96), rgba(16, 32, 43, 0.98));
   color: #f7fbfc;
   border-color: transparent;
 }
@@ -313,18 +316,18 @@ main {
 
 .button {
   background: var(--accent);
-  color: #fff;
-  box-shadow: 0 14px 30px rgba(11, 110, 120, 0.25);
+  color: #071014;
+  box-shadow: 0 14px 30px rgba(88, 213, 201, 0.18);
 }
 
 .button-secondary {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(238, 243, 246, 0.06);
   color: var(--text);
   border: 1px solid var(--line);
 }
 
 .button-light {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(238, 243, 246, 0.1);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.22);
 }
@@ -348,7 +351,7 @@ main {
   padding: 1rem 1.15rem;
   border: 1px solid var(--line);
   border-radius: 20px;
-  background: rgba(255, 253, 248, 0.68);
+  background: rgba(238, 243, 246, 0.05);
   font-weight: 600;
 }
 
@@ -407,7 +410,7 @@ main {
   overflow: hidden;
   border-radius: 18px;
   background:
-    linear-gradient(140deg, rgba(11, 110, 120, 0.12), rgba(215, 125, 63, 0.2));
+    linear-gradient(140deg, rgba(88, 213, 201, 0.14), rgba(255, 177, 95, 0.16));
 }
 
 .card-media img {
@@ -451,7 +454,7 @@ main {
 .tag-list li {
   padding: 0.42rem 0.76rem;
   border-radius: 999px;
-  background: rgba(11, 110, 120, 0.08);
+  background: rgba(88, 213, 201, 0.12);
   color: var(--accent-strong);
   font-size: 0.85rem;
   font-weight: 700;
@@ -480,7 +483,7 @@ main {
   padding: 0.45rem 0.75rem;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(238, 243, 246, 0.05);
 }
 
 .article-body,
