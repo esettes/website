@@ -1,18 +1,18 @@
 :root {
-  --bg: #080a0f;
-  --bg-soft: #10131a;
-  --surface: rgba(20, 24, 32, 0.82);
-  --surface-strong: #1a202b;
+  --bg: #0d1117;
+  --bg-soft: #111827;
+  --surface: #151b23;
+  --surface-strong: #1b2430;
   --text: #eef3f6;
   --muted: #a6b2bc;
   --accent: #58d5c9;
   --accent-strong: #96eee6;
   --accent-warm: #ffb15f;
   --line: rgba(238, 243, 246, 0.12);
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
-  --radius: 24px;
-  --radius-sm: 18px;
-  --max-width: 1120px;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  --radius: 10px;
+  --radius-sm: 8px;
+  --max-width: 1040px;
   --font-ui: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
   --font-display: "Newsreader", Georgia, serif;
 }
@@ -30,13 +30,7 @@ body {
   min-height: 100vh;
   font-family: var(--font-ui);
   color: var(--text);
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    radial-gradient(circle at top left, rgba(88, 213, 201, 0.16), transparent 28%),
-    radial-gradient(circle at 85% 10%, rgba(255, 177, 95, 0.14), transparent 20%),
-    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
-  background-size: 42px 42px, 42px 42px, auto, auto, auto;
+  background: var(--bg);
   line-height: 1.65;
 }
 
@@ -48,7 +42,7 @@ a {
 img {
   display: block;
   max-width: 100%;
-  border-radius: 20px;
+  border-radius: var(--radius-sm);
 }
 
 code {
@@ -63,28 +57,7 @@ main {
 
 .page-background::before,
 .page-background::after {
-  content: "";
-  position: fixed;
-  z-index: -1;
-  border-radius: 999px;
-  filter: blur(18px);
-  opacity: 0.75;
-}
-
-.page-background::before {
-  width: 320px;
-  height: 320px;
-  top: 110px;
-  right: 6vw;
-  background: rgba(88, 213, 201, 0.11);
-}
-
-.page-background::after {
-  width: 240px;
-  height: 240px;
-  bottom: 10vh;
-  left: 4vw;
-  background: rgba(255, 177, 95, 0.1);
+  display: none;
 }
 
 .shell {
@@ -96,8 +69,7 @@ main {
   position: sticky;
   top: 0;
   z-index: 30;
-  backdrop-filter: blur(18px);
-  background: rgba(8, 10, 15, 0.78);
+  background: rgba(13, 17, 23, 0.94);
   border-bottom: 1px solid var(--line);
 }
 
@@ -120,11 +92,10 @@ main {
   place-items: center;
   width: 3rem;
   height: 3rem;
-  border-radius: 20px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-warm));
+  border-radius: var(--radius-sm);
+  background: var(--accent);
   color: #071014;
   font-weight: 700;
-  box-shadow: 0 14px 30px rgba(88, 213, 201, 0.18);
 }
 
 .brand-copy {
@@ -148,26 +119,23 @@ main {
 }
 
 .nav-link {
-  padding: 0.65rem 1rem;
-  border-radius: 999px;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
   color: var(--muted);
   transition:
-    transform 0.2s ease,
     background-color 0.2s ease,
     color 0.2s ease,
-    box-shadow 0.2s ease;
+    border-color 0.2s ease;
 }
 
 .nav-link:hover,
 .nav-link.is-active {
   color: var(--text);
   background: var(--surface-strong);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
-  transform: translateY(-1px);
 }
 
 .hero {
-  padding: 4.5rem 0 2.25rem;
+  padding: 3rem 0 1.5rem;
 }
 
 .kicker,
@@ -183,7 +151,7 @@ main {
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.9fr);
-  gap: 1.25rem;
+  gap: 1rem;
   align-items: start;
   margin-top: 1rem;
 }
@@ -193,33 +161,25 @@ main {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 32px;
+  border-radius: var(--radius);
   background: var(--surface);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(18px);
 }
 
 .hero-copy {
-  padding: clamp(1.6rem, 4vw, 3rem);
+  padding: clamp(1.4rem, 3vw, 2.25rem);
 }
 
 .hero-copy::after {
-  content: "";
-  position: absolute;
-  right: -50px;
-  bottom: -90px;
-  width: 220px;
-  height: 220px;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(255, 177, 95, 0.22), transparent 70%);
+  display: none;
 }
 
 .hero-copy h1 {
   margin: 0 0 1rem;
-  max-width: 8ch;
+  max-width: 12ch;
   font-family: var(--font-display);
-  font-size: clamp(3rem, 9vw, 5.8rem);
-  line-height: 0.92;
+  font-size: clamp(2.6rem, 7vw, 4.8rem);
+  line-height: 0.98;
 }
 
 .hero-tagline {
@@ -246,9 +206,9 @@ main {
 }
 
 .accent-card {
-  background: linear-gradient(160deg, rgba(27, 56, 65, 0.96), rgba(16, 32, 43, 0.98));
+  background: var(--surface-strong);
   color: #f7fbfc;
-  border-color: transparent;
+  border-color: var(--line);
 }
 
 .accent-card .eyebrow,
@@ -306,18 +266,15 @@ main {
   align-items: center;
   justify-content: center;
   padding: 0.85rem 1.2rem;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   font-weight: 700;
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
     background-color 0.2s ease;
 }
 
 .button {
   background: var(--accent);
   color: #071014;
-  box-shadow: 0 14px 30px rgba(88, 213, 201, 0.18);
 }
 
 .button-secondary {
@@ -335,7 +292,8 @@ main {
 .button:hover,
 .button-secondary:hover,
 .button-light:hover {
-  transform: translateY(-2px);
+  background: var(--accent-strong);
+  color: #071014;
 }
 
 .highlight-strip {
@@ -350,7 +308,7 @@ main {
 .highlight-strip li {
   padding: 1rem 1.15rem;
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: var(--radius-sm);
   background: rgba(238, 243, 246, 0.05);
   font-weight: 600;
 }
@@ -377,7 +335,7 @@ main {
 }
 
 .page-hero {
-  padding: 3.75rem 0 1.5rem;
+  padding: 3rem 0 1.25rem;
 }
 
 .page-description {
@@ -408,9 +366,8 @@ main {
 .card-media {
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  border-radius: 18px;
-  background:
-    linear-gradient(140deg, rgba(88, 213, 201, 0.14), rgba(255, 177, 95, 0.16));
+  border-radius: var(--radius-sm);
+  background: var(--surface-strong);
 }
 
 .card-media img {
@@ -453,7 +410,7 @@ main {
 
 .tag-list li {
   padding: 0.42rem 0.76rem;
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   background: rgba(88, 213, 201, 0.12);
   color: var(--accent-strong);
   font-size: 0.85rem;
@@ -482,7 +439,7 @@ main {
 .detail-meta span {
   padding: 0.45rem 0.75rem;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--radius-sm);
   background: rgba(238, 243, 246, 0.05);
 }
 
@@ -528,7 +485,7 @@ main {
 .gallery-item {
   padding: 0.85rem;
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: var(--radius-sm);
   background: var(--surface);
   box-shadow: var(--shadow);
 }
