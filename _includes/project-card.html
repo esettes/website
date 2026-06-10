@@ -1,0 +1,28 @@
+<article class="card project-card reveal">
+  {% if include.project.cover != blank %}
+    <div class="card-media">
+      <img src="{{ include.project.cover | relative_url }}" alt="{{ include.project.title }}">
+    </div>
+  {% endif %}
+  <p class="eyebrow">{{ include.project.status | default: "Proyecto" }}</p>
+  <h3>
+    <a href="{{ include.project.url | relative_url }}">{{ include.project.title }}</a>
+  </h3>
+  <p>
+    {{ include.project.excerpt | default: include.project.content | strip_html | strip_newlines | truncate: 180 }}
+  </p>
+  {% if include.project.stack %}
+    <ul class="tag-list">
+      {% for item in include.project.stack %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  <div class="link-row">
+    <a class="text-link" href="{{ include.project.url | relative_url }}">Ver detalle</a>
+    {% if include.project.repo_url != blank %}
+      <a class="text-link" href="{{ include.project.repo_url }}">Repositorio</a>
+    {% endif %}
+  </div>
+</article>
+

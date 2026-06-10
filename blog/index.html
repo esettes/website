@@ -1,0 +1,19 @@
+---
+layout: page
+title: Blog
+description: Articulos, notas de estudio y publicaciones profesionales.
+permalink: /blog/
+kicker: Publicaciones
+---
+{% if site.posts.size > 0 %}
+  <div class="cards">
+    {% for post in site.posts %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="card empty-state">
+    <p>No hay posts todavia. Crea primero en <code>_posts/</code>.</p>
+  </div>
+{% endif %}
+

@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<article class="shell article-layout">
+  <a class="text-link" href="{{ '/blog/' | relative_url }}">Volver al blog</a>
+  <header class="article-header">
+    <p class="kicker">Blog</p>
+    <h1>{{ page.title }}</h1>
+    <div class="article-meta">
+      <span>{{ page.date | date: "%d/%m/%Y" }}</span>
+      {% if page.author %}
+        <span>{{ page.author }}</span>
+      {% endif %}
+    </div>
+    {% if page.excerpt %}
+      <p class="page-description">{{ page.excerpt }}</p>
+    {% endif %}
+  </header>
+  <section class="rich-text article-body">
+    {{ content }}
+  </section>
+</article>
+

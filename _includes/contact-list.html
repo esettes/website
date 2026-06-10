@@ -1,0 +1,13 @@
+<ul class="contact-list">
+  {% for item in site.data.profile.contact %}
+    <li>
+      <span class="contact-label">{{ item.label }}</span>
+      {% if item.url != blank %}
+        <a href="{{ item.url }}">{{ item.value }}</a>
+      {% else %}
+        <span>{{ item.value }}</span>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+

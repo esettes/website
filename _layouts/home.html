@@ -1,0 +1,91 @@
+---
+layout: default
+---
+{% assign profile = site.data.profile %}
+<section class="hero shell">
+  <p class="kicker">Perfil profesional y academico</p>
+  <div class="hero-grid">
+    <div class="hero-copy reveal">
+      <h1>{{ profile.name }}</h1>
+      <p class="hero-tagline">{{ profile.tagline }}</p>
+      <p class="hero-text">{{ profile.intro }}</p>
+      <div class="button-row">
+        <a class="button" href="{{ '/projects/' | relative_url }}">Ver proyectos</a>
+        <a class="button button-secondary" href="{{ '/blog/' | relative_url }}">Ir al blog</a>
+      </div>
+    </div>
+    <div class="hero-side">
+      <section class="card reveal">
+        <p class="eyebrow">Contacto</p>
+        {% include contact-list.html %}
+      </section>
+      <section class="card accent-card reveal">
+        <p class="eyebrow">Curriculum</p>
+        <p>{{ profile.resume.summary }}</p>
+        {% if profile.resume.file != blank %}
+          <div class="button-row">
+            <a class="button button-light" href="{{ profile.resume.file | relative_url }}">
+              {{ profile.resume.button_label }}
+            </a>
+          </div>
+        {% else %}
+          <p class="note">
+            Sube PDF a <code>assets/files/cv/</code> y actualiza
+            <code>_data/profile.yml</code>.
+          </p>
+        {% endif %}
+      </section>
+    </div>
+  </div>
+  {% if profile.highlights %}
+    <ul class="highlight-strip">
+      {% for item in profile.highlights %}
+        <li>{{ item }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
+
+<section class="shell section-block">
+  <div class="section-heading">
+    <div>
+      <p class="kicker">Blog</p>
+      <h2>Ultimos posts</h2>
+    </div>
+    <a class="text-link" href="{{ '/blog/' | relative_url }}">Ver archivo completo</a>
+  </div>
+  {% if site.posts.size > 0 %}
+    <div class="cards">
+      {% for post in site.posts limit: 3 %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="card empty-state">
+      <p>Aun no hay posts. Crea primero en <code>_posts/</code>.</p>
+    </div>
+  {% endif %}
+</section>
+
+<section class="shell section-block">
+  {% assign projects = site.projects | sort: 'date' | reverse %}
+  <div class="section-heading">
+    <div>
+      <p class="kicker">Proyectos</p>
+      <h2>Trabajo y portfolio</h2>
+    </div>
+    <a class="text-link" href="{{ '/projects/' | relative_url }}">Explorar proyectos</a>
+  </div>
+  {% if projects.size > 0 %}
+    <div class="cards">
+      {% for project in projects limit: 3 %}
+        {% include project-card.html project=project %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="card empty-state">
+      <p>Aun no hay proyectos. Crea primero en <code>_projects/</code>.</p>
+    </div>
+  {% endif %}
+</section>
+

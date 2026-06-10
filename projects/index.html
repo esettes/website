@@ -1,0 +1,20 @@
+---
+layout: page
+title: Proyectos
+description: Trabajos, experimentos y casos de estudio con detalle reusable.
+permalink: /projects/
+kicker: Portfolio
+---
+{% assign projects = site.projects | sort: 'date' | reverse %}
+{% if projects.size > 0 %}
+  <div class="cards">
+    {% for project in projects %}
+      {% include project-card.html project=project %}
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="card empty-state">
+    <p>No hay proyectos todavia. Crea primero en <code>_projects/</code>.</p>
+  </div>
+{% endif %}
+

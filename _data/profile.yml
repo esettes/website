@@ -1,0 +1,28 @@
+name: "Nombre Apellido"
+tagline: "Perfil profesional y academico"
+intro: >-
+  Presenta aqui tu recorrido, areas de especializacion, intereses de
+  investigacion y enfoque profesional con un tono claro y directo.
+contact:
+  - label: Email
+    value: tu.correo@example.com
+    url: mailto:tu.correo@example.com
+  - label: GitHub
+    value: github.com/tuusuario
+    url: https://github.com/tuusuario
+  - label: LinkedIn
+    value: linkedin.com/in/tuusuario
+    url: https://www.linkedin.com/in/tuusuario/
+  - label: Ubicacion
+    value: Madrid, Espana
+resume:
+  summary: >-
+    Aqui ira resumen ejecutivo de tu experiencia, formacion, logros y
+    responsabilidades destacadas. Cuando tengas PDF, enlazalo desde esta ficha.
+  file: ""
+  button_label: "Descargar CV"
+highlights:
+  - "Especialidad o linea de investigacion"
+  - "Tecnologias, metodologias y herramientas clave"
+  - "Logro, certificacion o foco profesional actual"
+
