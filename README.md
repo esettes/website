@@ -1,92 +1,77 @@
-# Web personal para GitHub Pages
+# Portfolio & Technical Blog
 
-Base Jekyll preparada para una web profesional y academica con tres bloques:
+Web profesional de Roxana Stancu, construida con Jekyll y publicada mediante GitHub Pages.
 
-- `home` para presentacion, contacto y CV.
-- `blog` para ir anadiendo posts.
-- `projects` como coleccion para proyectos con metadatos, imagenes y enlaces.
+La página presenta:
 
-## Estructura
-
-```text
-.
-├── _config.yml
-├── _data/
-│   ├── navigation.yml
-│   └── profile.yml
-├── _includes/
-├── _layouts/
-├── _posts/
-├── _projects/
-├── assets/
-│   ├── css/
-│   ├── files/cv/
-│   └── images/
-├── blog/
-├── projects/
-└── index.md
-```
-
-## Editar contenido
-
-### Datos principales
-
-Edita [`_data/profile.yml`](_data/profile.yml) para:
-
-- nombre, tagline e introduccion
-- enlaces de contacto
-- resumen de CV
-- destacados del home
-
-Si subes tu CV en PDF, guardalo en `assets/files/cv/` y actualiza `resume.file`.
-
-### Blog
-
-Cada post va en [`_posts/`](_posts) con formato:
-
-```md
----
-title: "Titulo"
-date: 2026-06-10 09:00:00 +0200
-excerpt: "Resumen corto"
-author: "Tu Nombre"
----
-Contenido.
-```
-
-### Proyectos
-
-Cada proyecto va en [`_projects/`](_projects) con formato:
-
-```md
----
-title: "Nombre proyecto"
-date: 2026-06-10
-excerpt: "Resumen corto"
-status: "En curso"
-role: "Tu rol"
-stack:
-  - Jekyll
-  - GitHub Pages
-repo_url: "https://github.com/tuusuario/tu-repo"
-demo_url: ""
-cover: "/assets/images/projects/portada.jpg"
-gallery:
-  - src: "/assets/images/projects/captura-1.jpg"
-    alt: "Captura 1"
----
-Descripcion completa.
-```
+- Perfil profesional y experiencia.
+- Portfolio con casos de estudio detallados.
+- Blog sobre backend, automatización, Linux, redes y testing.
+- Información de contacto y disponibilidad profesional.
 
 ## Desarrollo local
+
+Se necesita Ruby, Bundler y las dependencias incluidas en `Gemfile`.
 
 ```bash
 bundle install
 bundle exec jekyll serve
 ```
 
-## Publicacion en GitHub Pages
+La web estará disponible en:
 
-1. Sube repo a GitHub.
-2. Activa GitHub Pages desde rama `main` y carpeta `/ (root)`.
-3. Si publicas como proyecto y no como `usuario.github.io`, ajusta `baseurl` en [`_config.yml`](_config.yml).
+```text
+http://127.0.0.1:4000/website/
+```
+
+## Editar el perfil
+
+Los datos principales están en:
+
+- `_data/profile.yml`: presentación, contacto, estado profesional y especialización.
+- `_data/skills.yml`: tecnologías agrupadas por área.
+- `about/index.html`: experiencia, formación y forma de trabajar.
+
+## Añadir un proyecto
+
+Crear un archivo Markdown dentro de `_projects/` con metadatos como:
+
+```yaml
+---
+title: "Project title"
+date: 2026-08-18
+excerpt: "Short project description."
+status: "In progress"
+role: "Architecture and development"
+category: "Backend"
+code: "API"
+stack:
+  - Python
+  - PostgreSQL
+repo_url: "https://github.com/esettes/project"
+demo_url: ""
+cover: ""
+---
+```
+
+Después del front matter se documentan el problema, la solución, las decisiones técnicas,
+el resultado y el estado real del proyecto.
+
+## Añadir un artículo
+
+Los artículos se guardan en `_posts/` siguiendo el formato de Jekyll:
+
+```text
+YYYY-MM-DD-title.md
+```
+
+## Publicación
+
+El repositorio usa actualmente la rama `master`. GitHub Pages debe configurarse para
+publicar desde esa rama y el directorio raíz.
+
+URL prevista:
+
+```text
+https://esettes.github.io/website/
+```

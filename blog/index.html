@@ -1,10 +1,16 @@
 ---
 layout: page
 title: Blog
-description: Articulos, notas de estudio y publicaciones profesionales.
+description: Artículos sobre backend, redes, automatización, Linux y decisiones de ingeniería.
 permalink: /blog/
 kicker: Publicaciones
 ---
+<div class="archive-intro">
+  <p>
+    Uso este espacio para explicar problemas que encuentro al desarrollar: desde el
+    framing de mensajes TCP hasta el diseño de laboratorios de QA reproducibles.
+  </p>
+</div>
 {% if site.posts.size > 0 %}
   <div class="cards">
     {% for post in site.posts %}
@@ -13,7 +19,6 @@ kicker: Publicaciones
   </div>
 {% else %}
   <div class="card empty-state">
-    <p>No hay posts todavia. Crea primero en <code>_posts/</code>.</p>
+    <p>No hay posts todavía. Crea primero en <code>_posts/</code>.</p>
   </div>
 {% endif %}
-

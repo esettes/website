@@ -1,10 +1,12 @@
-title: "Nombre Apellido | Perfil profesional y academico"
-email: "tu.correo@example.com"
+title: "Roxana Stancu | Backend & Automation Developer"
+email: "ioanaroxana.st@gmail.com"
+author: "Roxana Stancu"
 description: >-
-  Web personal para presentar perfil profesional, formacion, proyectos
-  y publicaciones.
+  Portfolio y blog técnico sobre backend, automatización, integraciónes,
+  Linux, redes, testing y desarrollo de software.
 baseurl: "/website"
 url: "https://esettes.github.io"
+repository: "esettes/website"
 lang: es
 timezone: Europe/Madrid
 markdown: kramdown
@@ -12,6 +14,8 @@ permalink: /blog/:year/:month/:day/:title/
 excerpt_separator: "<!--more-->"
 plugins:
   - jekyll-feed
+feed:
+  path: feed.xml
 collections:
   projects:
     output: true

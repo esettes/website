@@ -12,6 +12,16 @@
     name="description"
     content="{{ page.description | default: site.description | strip_html | strip_newlines }}"
   >
+  <meta name="author" content="{{ site.author }}">
+  <meta name="theme-color" content="#0b1020">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta
+    property="og:description"
+    content="{{ page.description | default: page.excerpt | default: site.description | strip_html | strip_newlines }}"
+  >
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
