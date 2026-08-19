@@ -1,43 +1,12 @@
 name: "Roxana Stancu"
-tagline: "Backend & Automation Developer"
+role: "Desarrolladora de software"
 intro: >-
-  Desarrollo software backend, automatizaciónes y herramientas técnicas
-  centradas en resolver problemas reales con código mantenible, pruebas y
-  documentación clara.
-availability: >-
-  Abierta a oportunidades junior en backend, automatización e integración
-  de sistemas, en Madrid o remoto desde España.
-current:
-  role: "Full-Stack Developer Intern"
-  organization: "42 Madrid"
-  focus: "TypeScript, APIs, tiempo real, bases de datos y testing"
-contact:
-  - label: Email
-    value: ioanaroxana.st@gmail.com
-    url: mailto:ioanaroxana.st@gmail.com
-  - label: GitHub
-    value: github.com/esettes
-    url: https://github.com/esettes
-  - label: Ubicación
-    value: Madrid, España
-    url: ""
-highlights:
-  - "Backend, APIs y sistemas en tiempo real"
-  - "Automatizacion, Linux y herramientas internas"
-  - "Testing, documentación y diseño mantenible"
-expertise:
-  - title: "Backend y tiempo real"
-    description: >-
-      APIs, autenticación, WebSocket, protocolos de red y servicios que
-      deben responder de forma predecible.
-    stack: "TypeScript · Fastify · PostgreSQL · Redis"
-  - title: "Automatizacion"
-    description: >-
-      Flujos internos, herramientas de desarrollo y procesos repetibles
-      para reducir trabajo manual y errores.
-    stack: "Python · Bash · APIs · CI"
-  - title: "Sistemas fiables"
-    description: >-
-      Software de bajo nivel, redes y servicios Linux construidos con
-      pruebas, límites claros y documentación técnica.
-    stack: "C · C++ · Linux · Docker"
+  Soy desarrolladora de software enfocada en backend, automatización y sistemas.
+  Trabajo con Python, C/C++, TypeScript, Linux, APIs y redes, prestando especial
+  atención al testing, la legibilidad y la documentación técnica.
+current: "Actualmente realizo prácticas como Full-Stack Developer en 42 Madrid."
+email: "ioanaroxana.st@gmail.com"
+github: "https://github.com/esettes"
+linkedin: "https://www.linkedin.com/in/roxana-stancu-dev/"
+cv: "/assets/cv/Roxana_Stancu.pdf"
+location: "Madrid, España"

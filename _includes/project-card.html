@@ -1,36 +1,26 @@
-<article class="card project-card reveal">
-  {% if include.project.cover != blank %}
-    <div class="card-media">
-      <img src="{{ include.project.cover | relative_url }}" alt="{{ include.project.title }}">
-    </div>
+<article class="project-entry">
+  {% if include.project.cover %}
+    <a class="project-media" href="{{ include.project.url | relative_url }}">
+      <img src="{{ include.project.cover | relative_url }}" alt="Vista previa de {{ include.project.title }}">
+    </a>
   {% else %}
-    <div class="project-visual" aria-hidden="true">
-      <span>{{ include.project.code | default: "DEV" }}</span>
-      <small>{{ include.project.category | default: "Software" }}</small>
-    </div>
+    <div class="project-media media-placeholder" aria-hidden="true"></div>
   {% endif %}
-  <p class="eyebrow">{{ include.project.category | default: "Proyecto" }}</p>
-  <h3>
+  <h2>
     <a href="{{ include.project.url | relative_url }}">{{ include.project.title }}</a>
-  </h3>
-  <p>
-    {{ include.project.excerpt | default: include.project.content | strip_html | strip_newlines | truncate: 180 }}
-  </p>
+  </h2>
+  <p>{{ include.project.excerpt | default: include.project.content | strip_html | strip_newlines | truncate: 180 }}</p>
   {% if include.project.stack %}
-    <ul class="tag-list">
-      {% for item in include.project.stack %}
-        <li>{{ item }}</li>
-      {% endfor %}
-    </ul>
+    <p class="project-technologies"><strong>Tecnologías:</strong> {{ include.project.stack | join: " · " }}</p>
   {% endif %}
-  <p class="project-status">{{ include.project.status | default: "Proyecto" }}</p>
-  <div class="link-row">
-    <a class="text-link" href="{{ include.project.url | relative_url }}">Ver detalle</a>
+  {% if include.project.status %}
+    <p class="project-status"><strong>Estado:</strong> {{ include.project.status }}</p>
+  {% endif %}
+  <p class="entry-links">
+    <a href="{{ include.project.url | relative_url }}">Ver detalle</a>
     {% if include.project.repo_url != blank %}
-      <a class="text-link" href="{{ include.project.repo_url }}" target="_blank" rel="noreferrer">
-        Repositorio
-      </a>
+      <span aria-hidden="true"> · </span>
+      <a href="{{ include.project.repo_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>
     {% endif %}
-  </div>
+  </p>
 </article>
-

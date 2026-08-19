@@ -1,14 +1,12 @@
 ---
 layout: default
 ---
-<section class="page-hero shell">
-  <p class="kicker">{{ page.kicker | default: "Sección" }}</p>
+<header class="page-header shell">
   <h1>{{ page.title }}</h1>
   {% if page.description %}
     <p class="page-description">{{ page.description }}</p>
   {% endif %}
-</section>
+</header>
 <section class="shell page-content">
   {{ content }}
 </section>
-

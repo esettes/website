@@ -1,8 +1,6 @@
-- title: Inicio
+- title: About me
   url: /
-- title: Sobre mí
-  url: /about/
+- title: Projects
+  url: /projects/
 - title: Blog
   url: /blog/
-- title: Proyectos
-  url: /projects/

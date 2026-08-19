@@ -1,7 +1,8 @@
 ---
-title: "ft_irc: servidor IRC no bloqueante"
+title: "ft_irc"
+priority: 1
 date: 2026-08-10
-excerpt: "Servidor IRC en C++98 capaz de gestiónar múltiples clientes mediante sockets no bloqueantes y un único bucle poll."
+excerpt: "Servidor IRC en C++98 capaz de gestionar múltiples clientes mediante sockets no bloqueantes y un único bucle poll."
 status: "En desarrollo · 42 Madrid"
 role: "Backend, protocolo IRC, canales y testing"
 category: "Backend y networking"
@@ -14,13 +15,13 @@ stack:
   - Integration tests
 repo_url: "https://github.com/esettes/42-ft_irc"
 demo_url: ""
-cover: ""
+cover: "/assets/images/projects/ft_irc.png"
 ---
 ## El reto
 
 Construir un servidor compatible con un cliente IRC real, sin threads ni procesos
-adicionales y usando un único `poll()` para aceptar conexiónes, recibir datos y enviar
-respuestas a varios clientes simultaneamente.
+adicionales y usando un único `poll()` para aceptar conexiones, recibir datos y enviar
+respuestas a varios clientes simultáneamente.
 
 ## Trabajo técnico
 
@@ -30,8 +31,8 @@ TCP, interpreta comandos y genera respuestas con el formato del protocolo IRC.
 Entre las áreas trabajadas se encuentran:
 
 - Registro mediante `PASS`, `NICK` y `USER`.
-- Buffers de entrada y salida para operaciónes parciales.
-- Mensajes numericos y prefijos IRC.
+- Buffers de entrada y salida para operaciones parciales.
+- Mensajes numéricos y prefijos IRC.
 - Modelo de canales y pertenencia de clientes.
 - Comandos de canal como `JOIN`, `TOPIC`, `INVITE`, `KICK` y `MODE`.
 - Pruebas con clientes reales, `netcat` y casos automatizados.

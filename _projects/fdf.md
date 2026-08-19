@@ -1,10 +1,11 @@
 ---
-title: "FDF: visualizador de mapas 3D"
+title: "FDF"
+priority: 5
 date: 2022-09-01
-excerpt: "Representación gráfica de mapas de altura mediante proyección isométrica, transformaciónes y rasterizado de líneas."
+excerpt: "Representación gráfica de mapas de altura mediante proyección isométrica, transformaciones y rasterizado de líneas."
 status: "Completado"
 role: "Desarrollo gráfico y algoritmos"
-category: "Graficos y algoritmos"
+category: "Gráficos y algoritmos"
 code: "3D"
 stack:
   - C
@@ -13,18 +14,18 @@ stack:
   - Isometric projection
 repo_url: "https://github.com/esettes/FDF"
 demo_url: ""
-cover: ""
+cover: "/assets/images/projects/FDF.png"
 ---
 ## El proyecto
 
 FDF transforma un archivo de alturas en una malla navegable. Cada número representa la
 coordenada Z de un punto y el programa proyecta la escena sobre una ventana 2D.
 
-## Implementacion
+## Implementación
 
 - Lectura y validación del mapa de entrada.
 - Algoritmo de Bresenham para rasterizar cada segmento.
-- Proyeccion isométrica mediante transformaciónes trigonométricas.
+- Proyección isométrica mediante transformaciones trigonométricas.
 - Zoom, traslación, rotación y escalado de altura.
 - Gradientes de color según profundidad y relieve.
 

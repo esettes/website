@@ -6,7 +6,7 @@ description: "Una explicación práctica del buffering y el framing de mensajes 
 author: "Roxana Stancu"
 ---
 Cuando probamos un servidor IRC con `netcat`, es fácil asumir que cada vez que pulsamos
-Enter el servidor recibira exactamente un comando. TCP no ofrece esa garantia.
+Enter el servidor recibirá exactamente un comando. TCP no ofrece esa garantía.
 
 TCP transporta un **flujo ordenado de bytes**. Conserva el orden y permite detectar el
 cierre de la conexión, pero no conoce los límites lógicos de los mensajes IRC.
@@ -15,7 +15,7 @@ cierre de la conexión, pero no conoce los límites lógicos de los mensajes IRC
 
 ## Tres resultados válidos de recv()
 
-Si el cliente envia:
+Si el cliente envía:
 
 ```text
 NICK rox\r\n
@@ -45,7 +45,7 @@ while the buffer contains CRLF
 keep the remaining partial data for the next read event
 ```
 
-El detalle importante es el ultimo paso. El fragmento restante no es un error ni debe
+El detalle importante es el último paso. El fragmento restante no es un error ni debe
 descartarse: puede ser el principio del siguiente comando.
 
 ## Varias líneas en la misma lectura
@@ -58,7 +58,7 @@ Esto explica un fallo frecuente: las pruebas manuales funcionan comando a comand
 fallan al pegar un bloque completo de registro. El problema no está necesariamente en
 `PASS`, `NICK` o `USER`; puede estar en la capa que separa el flujo TCP en líneas IRC.
 
-## Limites y seguridad
+## Límites y seguridad
 
 Un buffer sin límites permitiría que un cliente enviase datos indefinidamente sin cerrar
 una línea. Una implementación robusta debe definir:
@@ -66,7 +66,7 @@ una línea. Una implementación robusta debe definir:
 - Longitud máxima aceptada para una línea IRC.
 - Tamaño máximo del buffer pendiente.
 - Comportamiento ante datos inválidos o una conexión cerrada a mitad de mensaje.
-- Pruebas para fragmentacion, concatenacion y escrituras parciales.
+- Pruebas para fragmentación, concatenación y escrituras parciales.
 
 ## La idea que conviene recordar
 

@@ -1,9 +1,10 @@
 ---
-title: "PIC IntelliSense para Visual Studio Code"
+title: "PIC IntelliSense"
+priority: 4
 date: 2026-08-12
 excerpt: "Extensión en TypeScript con autocompletado, hover e importación automática de metadatos para desarrollo C orientado a PIC."
 status: "En desarrollo"
-role: "Diseno de producto, extensión, tooling y pruebas"
+role: "Diseño de producto, extensión, tooling y pruebas"
 category: "Developer tooling"
 code: "PIC++"
 stack:
@@ -14,7 +15,7 @@ stack:
   - Testing
 repo_url: "https://github.com/esettes/PIC_Intellisense"
 demo_url: ""
-cover: ""
+cover: "/assets/images/projects/PIC IntelliSense.png"
 ---
 ## El problema
 
@@ -26,16 +27,16 @@ Mantener manualmente completions y documentación para cada modelo no es escalab
 Una extensión de Visual Studio Code que aporta:
 
 - Autocompletado de registros y helpers habituales.
-- Documentacion contextual mediante hover.
+- Documentación contextual mediante hover.
 - Snippets para flujos comunes de inicialización.
-- Filtrado según el dispositivo selecciónado.
+- Filtrado según el dispositivo seleccionado.
 - Herramientas para importar metadatos desde headers XC8 o Device Family Packs locales.
 
 ## Arquitectura
 
 La extensión separa providers, modelos, datos manuales, datos generados y tooling de
 importación. Los datos curados tienen prioridad sobre los generados, lo que permite
-automatizar la cobertura sin perder explicaciónes escritas a mano.
+automatizar la cobertura sin perder explicaciones escritas a mano.
 
 El comando de configuración detecta instalaciones de XC8, valida sus rutas y crea o
 combina una configuración `c_cpp_properties.json` sin destruir configuraciones previas.

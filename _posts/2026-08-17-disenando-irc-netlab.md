@@ -1,7 +1,7 @@
 ---
 title: "Diseñando irc-netlab: un laboratorio reproducible para probar IRC"
 date: 2026-08-17 18:00:00 +0200
-excerpt: "Como separar el laboratorio, el servicio probado y el futuro orquestador para obtener resultados repetibles."
+excerpt: "Cómo separar el laboratorio, el servicio probado y el futuro orquestador para obtener resultados repetibles."
 description: "Principios de arquitectura y alcance inicial de irc-netlab."
 author: "Roxana Stancu"
 ---
@@ -38,8 +38,8 @@ o WebSocket. Eso no significa que todos deban compartir una gran abstracción de
 
 Las reglas iniciales son:
 
-- Cada laboratorio expone capacidades mediante contratos publicos.
-- Los laboratorios no dependen entre si.
+- Cada laboratorio expone capacidades mediante contratos públicos.
+- Los laboratorios no dependen entre sí.
 - Un laboratorio debe poder utilizarse sin el orquestador.
 - El futuro `netlab-qa` consume contratos; no se convierte en dependencia de los laboratorios.
 
@@ -57,11 +57,11 @@ La primera fase se centra en los cimientos:
 - Ruff y validación de la wheel generada.
 - Requisitos, arquitectura y decisiones documentadas.
 
-Esta base no ejecuta aún el ciclo completo. Publicar ese limite evita confundir una buena
+Esta base no ejecuta aún el ciclo completo. Publicar ese límite evita confundir una buena
 estructura de proyecto con una funcionalidad que todavía no existe.
 
 ## Siguiente hito
 
 El siguiente resultado valioso será controlar un servicio IRC real de principio a fin:
 iniciarlo, detectar que está disponible, detenerlo y demostrar que no quedan recursos
-huérfanos. A partir de ahi, cada capacidad adicional podrá crecer sobre evidencia real.
+huérfanos. A partir de ahí, cada capacidad adicional podrá crecer sobre evidencia real.

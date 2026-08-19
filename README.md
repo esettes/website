@@ -1,13 +1,12 @@
-# Portfolio & Technical Blog
+# Portfolio and Technical Blog
 
-Web profesional de Roxana Stancu, construida con Jekyll y publicada mediante GitHub Pages.
+Portfolio de Roxana Stancu, construido con Jekyll y publicado mediante GitHub Pages.
 
-La página presenta:
+El sitio contiene:
 
-- Perfil profesional y experiencia.
-- Portfolio con casos de estudio detallados.
-- Blog sobre backend, automatización, Linux, redes y testing.
-- Información de contacto y disponibilidad profesional.
+- Perfil profesional y datos de contacto.
+- Seis proyectos con páginas de detalle.
+- Dos artículos técnicos.
 
 ## Desarrollo local
 
@@ -26,11 +25,11 @@ http://127.0.0.1:4000/website/
 
 ## Editar el perfil
 
-Los datos principales están en:
+Los datos de contacto y el texto principal están en `_data/profile.yml`. Los iconos de
+tecnologías se leen directamente de `assets/images/icons/`; la subcarpeta `media/` queda
+reservada para los iconos de GitHub, LinkedIn y currículum.
 
-- `_data/profile.yml`: presentación, contacto, estado profesional y especialización.
-- `_data/skills.yml`: tecnologías agrupadas por área.
-- `about/index.html`: experiencia, formación y forma de trabajar.
+La página About me se encuentra en la ruta raíz y se edita en `index.md`.
 
 ## Añadir un proyecto
 
@@ -39,23 +38,21 @@ Crear un archivo Markdown dentro de `_projects/` con metadatos como:
 ```yaml
 ---
 title: "Project title"
-date: 2026-08-18
+priority: 7
 excerpt: "Short project description."
 status: "In progress"
 role: "Architecture and development"
 category: "Backend"
-code: "API"
 stack:
   - Python
   - PostgreSQL
 repo_url: "https://github.com/esettes/project"
-demo_url: ""
-cover: ""
+cover: "/assets/images/projects/project.png"
 ---
 ```
 
-Después del front matter se documentan el problema, la solución, las decisiones técnicas,
-el resultado y el estado real del proyecto.
+`priority` controla el orden del listado. Si falta `cover`, el diseño conserva un hueco
+vacío con relación 3:2.
 
 ## Añadir un artículo
 

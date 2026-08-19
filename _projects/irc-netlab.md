@@ -1,10 +1,11 @@
 ---
-title: "irc-netlab: laboratorio autónomo de QA"
+title: "irc-netlab"
+priority: 2
 date: 2026-08-03
 excerpt: "Laboratorio reproducible en Python para iniciar, observar, probar y limpiar servicios IRC de forma automatizada."
 status: "Fase inicial · En desarrollo"
 role: "Requisitos, arquitectura, implementación y QA"
-category: "Automatizacion y testing"
+category: "Automatización y testing"
 code: "QA"
 stack:
   - Python 3.12
@@ -14,7 +15,7 @@ stack:
   - CI
 repo_url: "https://github.com/esettes/irc-netlab"
 demo_url: ""
-cover: ""
+cover: "/assets/images/projects/irc-netlab.png"
 ---
 ## Objetivo
 
@@ -32,9 +33,9 @@ validar -> iniciar -> esperar disponibilidad -> probar -> detener -> limpiar
 ## Principios de arquitectura
 
 - El laboratorio puede funcionar sin un orquestador externo.
-- Expone capacidades mediante contratos publicos y documentados.
+- Expone capacidades mediante contratos públicos y documentados.
 - No depende de futuros laboratorios HTTP, TCP, DNS o WebSocket.
-- Cada fase debe devolver resultados estructurados y evidencia util para diagnostico.
+- Cada fase debe devolver resultados estructurados y evidencia útil para diagnóstico.
 - La limpieza forma parte del resultado, no es una tarea secundaria.
 
 ## Base técnica
@@ -46,4 +47,4 @@ integración, Ruff, construcción de wheel y decisiones de arquitectura document
 
 La primera fase proporciona la base ejecutable, instalación y comandos de ayuda y versión.
 El control completo del servicio IRC sigue en desarrollo. El siguiente hito es cerrar un
-ciclo real de inicio, comprobacion de disponibilidad, parada y limpieza.
+ciclo real de inicio, comprobación de disponibilidad, parada y limpieza.

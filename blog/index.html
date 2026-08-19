@@ -1,24 +1,15 @@
 ---
 layout: page
 title: Blog
-description: Artículos sobre backend, redes, automatización, Linux y decisiones de ingeniería.
+description: Artículos técnicos sobre backend, redes, automatización y sistemas.
 permalink: /blog/
-kicker: Publicaciones
 ---
-<div class="archive-intro">
-  <p>
-    Uso este espacio para explicar problemas que encuentro al desarrollar: desde el
-    framing de mensajes TCP hasta el diseño de laboratorios de QA reproducibles.
-  </p>
-</div>
 {% if site.posts.size > 0 %}
-  <div class="cards">
+  <div class="post-list">
     {% for post in site.posts %}
       {% include post-card.html post=post %}
     {% endfor %}
   </div>
 {% else %}
-  <div class="card empty-state">
-    <p>No hay posts todavía. Crea primero en <code>_posts/</code>.</p>
-  </div>
+  <p>No hay artículos publicados.</p>
 {% endif %}

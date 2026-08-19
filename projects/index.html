@@ -1,25 +1,16 @@
 ---
 layout: page
 title: Proyectos
-description: Casos de estudio sobre backend, automatización, tooling, sistemas y gráficos.
+description: Proyectos de backend, redes, herramientas de desarrollo, sistemas y gráficos.
 permalink: /projects/
-kicker: Portfolio
 ---
-<div class="archive-intro">
-  <p>
-    Cada proyecto explica el problema, las decisiones técnicas, mi responsabilidad y el
-    estado real del desarrollo. Los experimentos formativos aparecen identificados como tales.
-  </p>
-</div>
-{% assign projects = site.projects | sort: 'date' | reverse %}
+{% assign projects = site.projects | sort: 'priority' %}
 {% if projects.size > 0 %}
-  <div class="cards">
+  <div class="project-list">
     {% for project in projects %}
       {% include project-card.html project=project %}
     {% endfor %}
   </div>
 {% else %}
-  <div class="card empty-state">
-    <p>No hay proyectos todavía. Crea primero en <code>_projects/</code>.</p>
-  </div>
+  <p>No hay proyectos publicados.</p>
 {% endif %}
