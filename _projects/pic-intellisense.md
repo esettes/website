@@ -1,6 +1,6 @@
 ---
 title: "PIC IntelliSense"
-priority: 4
+priority: 5
 date: 2026-08-12
 excerpt: "TypeScript extension with completion, hover documentation, and automatic metadata imports for PIC-oriented C development."
 status: "In development"

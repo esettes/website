@@ -1,6 +1,6 @@
 ---
 title: "irc-netlab"
-priority: 2
+priority: 3
 date: 2026-08-03
 excerpt: "Reproducible Python lab for starting, observing, testing, and cleaning up IRC services automatically."
 status: "Initial phase · In development"

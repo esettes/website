@@ -1,6 +1,6 @@
 ---
 title: "pic16cc"
-priority: 3
+priority: 4
 date: 2026-08-15
 excerpt: "Experimental compiler written in Rust that transforms a subset of C into Intel HEX firmware and includes a CPU simulator."
 status: "Experimental · In development"

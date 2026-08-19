@@ -1,6 +1,6 @@
 ---
 title: "Compute shaders with Vulkan"
-priority: 6
+priority: 7
 date: 2023-04-01
 excerpt: "GPU computing experiment that generates a fractal and compares the same workload on a CPU and a compute shader."
 status: "Technical experiment"
