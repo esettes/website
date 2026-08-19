@@ -1,5 +1,5 @@
 ---
-title: "FDF"
+title: "2D map renderer"
 priority: 6
 date: 2022-09-01
 excerpt: "Graphical rendering of height maps using isometric projection, transformations, and line rasterization."

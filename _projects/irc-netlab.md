@@ -1,5 +1,5 @@
 ---
-title: "irc-netlab"
+title: "QA network lab"
 priority: 3
 date: 2026-08-03
 excerpt: "Reproducible Python lab for starting, observing, testing, and cleaning up IRC services automatically."

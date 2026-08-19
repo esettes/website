@@ -1,5 +1,5 @@
 ---
-title: "ft_irc"
+title: "IRC server"
 priority: 1
 date: 2026-08-10
 excerpt: "Non-blocking IRC server in C++98 that handles multiple clients through a single poll loop."
