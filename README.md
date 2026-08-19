@@ -1,39 +1,39 @@
 # Portfolio and Technical Blog
 
-Portfolio de Roxana Stancu, construido con Jekyll y publicado mediante GitHub Pages.
+Roxana Stancu's portfolio, built with Jekyll and published through GitHub Pages.
 
-El sitio contiene:
+The site contains:
 
-- Perfil profesional y datos de contacto.
-- Seis proyectos con páginas de detalle.
-- Dos artículos técnicos.
+- A professional profile and contact details.
+- Six projects with detail pages.
+- Two technical articles.
 
-## Desarrollo local
+## Run locally
 
-Se necesita Ruby, Bundler y las dependencias incluidas en `Gemfile`.
+Ruby, Bundler, and the dependencies listed in `Gemfile` are required.
 
 ```bash
 bundle install
 bundle exec jekyll serve
 ```
 
-La web estará disponible en:
+The site will be available at:
 
 ```text
 http://127.0.0.1:4000/website/
 ```
 
-## Editar el perfil
+## Edit the profile
 
-Los datos de contacto y el texto principal están en `_data/profile.yml`. Los iconos de
-tecnologías se leen directamente de `assets/images/icons/`; la subcarpeta `media/` queda
-reservada para los iconos de GitHub, LinkedIn y currículum.
+Contact details and profile copy live in `_data/profile.yml`. Technology icons are read
+directly from `assets/images/icons/`; the `media/` subdirectory is reserved for the
+GitHub, LinkedIn, and CV icons.
 
-La página About me se encuentra en la ruta raíz y se edita en `index.md`.
+The About me page is served from the root path and edited in `index.md`.
 
-## Añadir un proyecto
+## Add a project
 
-Crear un archivo Markdown dentro de `_projects/` con metadatos como:
+Create a Markdown file in `_projects/` with front matter such as:
 
 ```yaml
 ---
@@ -51,23 +51,23 @@ cover: "/assets/images/projects/project.png"
 ---
 ```
 
-`priority` controla el orden del listado. Si falta `cover`, el diseño conserva un hueco
-vacío con relación 3:2.
+`priority` controls the list order. If `cover` is missing, the layout keeps an empty 3:2
+placeholder.
 
-## Añadir un artículo
+## Add an article
 
-Los artículos se guardan en `_posts/` siguiendo el formato de Jekyll:
+Articles are stored in `_posts/` using Jekyll's filename format:
 
 ```text
 YYYY-MM-DD-title.md
 ```
 
-## Publicación
+## Publishing
 
-El repositorio usa actualmente la rama `master`. GitHub Pages debe configurarse para
-publicar desde esa rama y el directorio raíz.
+The repository currently uses the `master` branch. Configure GitHub Pages to publish from
+that branch and the repository root.
 
-URL prevista:
+Expected URL:
 
 ```text
 https://esettes.github.io/website/

@@ -1,21 +1,22 @@
 ---
-title: "Diseñando irc-netlab: un laboratorio reproducible para probar IRC"
+title: "Designing irc-netlab: a reproducible lab for testing IRC"
 date: 2026-08-17 18:00:00 +0200
-excerpt: "Cómo separar el laboratorio, el servicio probado y el futuro orquestador para obtener resultados repetibles."
-description: "Principios de arquitectura y alcance inicial de irc-netlab."
+excerpt: "How to separate the lab, the service under test, and a future orchestrator to obtain repeatable results."
+description: "Architecture principles and the initial scope of irc-netlab."
 author: "Roxana Stancu"
+cover: "/assets/images/blog/netlab.png"
 ---
-Una prueba de protocolo puede enviar comandos y comprobar respuestas. Un laboratorio de
-QA necesita controlar también todo lo que ocurre antes y después de esa conversación.
+A protocol test can send commands and check responses. A QA lab must also control
+everything that happens before and after that exchange.
 
-`irc-netlab` es mi proyecto para construir ese entorno alrededor de un servicio IRC.
+`irc-netlab` is my project for building that environment around an IRC service.
 
 <!--more-->
 
-## El ciclo completo
+## The complete cycle
 
-El primer objetivo no es soportar todos los escenarios imaginables. Es conseguir un ciclo
-local pequeño, fiable y repetible:
+The first goal is not to support every imaginable scenario. It is to achieve a small,
+reliable, and repeatable local cycle:
 
 ```text
 validate
@@ -27,41 +28,41 @@ validate
 -> report result
 ```
 
-Cada paso necesita un resultado observable. Si el servicio no arranca, el laboratorio debe
-explicar por qué. Si una prueba falla, debe conservar evidencia. Si la ejecución termina de
-forma inesperada, aún debe limpiar los procesos y recursos que le pertenecen.
+Every step needs an observable result. If the service does not start, the lab must explain
+why. If a test fails, it must preserve evidence. If execution ends unexpectedly, it must
+still clean up the processes and resources it owns.
 
-## Independencia antes que generalización
+## Independence before generalization
 
-`irc-netlab` será el primer laboratorio de un ecosistema que podría incluir HTTP, TCP, DNS
-o WebSocket. Eso no significa que todos deban compartir una gran abstracción desde el día uno.
+`irc-netlab` will be the first lab in an ecosystem that could include HTTP, TCP, DNS, or
+WebSocket. That does not mean they should all share a large abstraction from day one.
 
-Las reglas iniciales son:
+The initial rules are:
 
-- Cada laboratorio expone capacidades mediante contratos públicos.
-- Los laboratorios no dependen entre sí.
-- Un laboratorio debe poder utilizarse sin el orquestador.
-- El futuro `netlab-qa` consume contratos; no se convierte en dependencia de los laboratorios.
+- Each lab exposes capabilities through public contracts.
+- Labs do not depend on one another.
+- A lab must work without the orchestrator.
+- The future `netlab-qa` consumes contracts; it does not become a dependency of the labs.
 
-Esta dirección permite aprender de una implementación real antes de diseñar una plataforma
-genérica que podría no corresponderse con las necesidades reales.
+This direction makes it possible to learn from a real implementation before designing a
+generic platform that might not match actual needs.
 
-## Una base instalable y verificable
+## An installable and verifiable foundation
 
-La primera fase se centra en los cimientos:
+The first phase focuses on the foundation:
 
-- Python 3.12 y estructura `src`.
-- Paquete instalable y ejecutable de consola.
-- CLI con ayuda, versión y códigos de salida definidos.
-- Tests unitarios y de integración.
-- Ruff y validación de la wheel generada.
-- Requisitos, arquitectura y decisiones documentadas.
+- Python 3.12 and a `src` layout.
+- An installable package and console entry point.
+- A CLI with help, version, and defined exit codes.
+- Unit and integration tests.
+- Ruff and validation of the generated wheel.
+- Documented requirements, architecture, and decisions.
 
-Esta base no ejecuta aún el ciclo completo. Publicar ese límite evita confundir una buena
-estructura de proyecto con una funcionalidad que todavía no existe.
+This foundation does not yet run the complete cycle. Publishing that limitation avoids
+confusing a sound project structure with functionality that does not yet exist.
 
-## Siguiente hito
+## Next milestone
 
-El siguiente resultado valioso será controlar un servicio IRC real de principio a fin:
-iniciarlo, detectar que está disponible, detenerlo y demostrar que no quedan recursos
-huérfanos. A partir de ahí, cada capacidad adicional podrá crecer sobre evidencia real.
+The next useful result will be controlling a real IRC service from start to finish: starting
+it, detecting readiness, stopping it, and proving that no orphaned resources remain. From
+there, each additional capability can grow from real evidence.

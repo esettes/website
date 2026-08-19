@@ -2,10 +2,10 @@
 title: "irc-netlab"
 priority: 2
 date: 2026-08-03
-excerpt: "Laboratorio reproducible en Python para iniciar, observar, probar y limpiar servicios IRC de forma automatizada."
-status: "Fase inicial · En desarrollo"
-role: "Requisitos, arquitectura, implementación y QA"
-category: "Automatización y testing"
+excerpt: "Reproducible Python lab for starting, observing, testing, and cleaning up IRC services automatically."
+status: "Initial phase · In development"
+role: "Requirements, architecture, implementation, and QA"
+category: "Automation and testing"
 code: "QA"
 stack:
   - Python 3.12
@@ -17,34 +17,33 @@ repo_url: "https://github.com/esettes/irc-netlab"
 demo_url: ""
 cover: "/assets/images/projects/irc-netlab.png"
 ---
-## Objetivo
+## Goal
 
-Probar un servidor de red de forma fiable requiere más que enviar comandos: hay que
-controlar su ciclo de vida, saber cuándo está preparado, conservar evidencias y limpiar
-todos los recursos incluso cuando una prueba falla.
+Reliably testing a network server requires more than sending commands. The test environment
+must control its lifecycle, detect when it is ready, preserve evidence, and clean up every
+resource even when a test fails.
 
-`irc-netlab` nace como un laboratorio autónomo para ejecutar ese ciclo de forma
-reproducible:
+`irc-netlab` is a standalone lab designed to run that cycle reproducibly:
 
 ```text
-validar -> iniciar -> esperar disponibilidad -> probar -> detener -> limpiar
+validate -> start -> wait until ready -> test -> stop -> clean up
 ```
 
-## Principios de arquitectura
+## Architecture principles
 
-- El laboratorio puede funcionar sin un orquestador externo.
-- Expone capacidades mediante contratos públicos y documentados.
-- No depende de futuros laboratorios HTTP, TCP, DNS o WebSocket.
-- Cada fase debe devolver resultados estructurados y evidencia útil para diagnóstico.
-- La limpieza forma parte del resultado, no es una tarea secundaria.
+- The lab can run without an external orchestrator.
+- It exposes capabilities through public, documented contracts.
+- It does not depend on future HTTP, TCP, DNS, or WebSocket labs.
+- Each phase must return structured results and useful diagnostic evidence.
+- Cleanup is part of the result, not a secondary task.
 
-## Base técnica
+## Technical foundation
 
-El proyecto utiliza Python 3.12, estructura `src`, CLI instalable, tests unitarios y de
-integración, Ruff, construcción de wheel y decisiones de arquitectura documentadas.
+The project uses Python 3.12, a `src` layout, an installable CLI, unit and integration
+tests, Ruff, wheel builds, and documented architecture decisions.
 
-## Estado honesto
+## Current status
 
-La primera fase proporciona la base ejecutable, instalación y comandos de ayuda y versión.
-El control completo del servicio IRC sigue en desarrollo. El siguiente hito es cerrar un
-ciclo real de inicio, comprobación de disponibilidad, parada y limpieza.
+The first phase provides the executable foundation, installation, and help and version
+commands. Full IRC service control remains in development. The next milestone is a complete
+cycle covering startup, readiness checks, shutdown, and cleanup.

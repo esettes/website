@@ -2,10 +2,10 @@
 title: "FDF"
 priority: 5
 date: 2022-09-01
-excerpt: "Representación gráfica de mapas de altura mediante proyección isométrica, transformaciones y rasterizado de líneas."
-status: "Completado"
-role: "Desarrollo gráfico y algoritmos"
-category: "Gráficos y algoritmos"
+excerpt: "Graphical rendering of height maps using isometric projection, transformations, and line rasterization."
+status: "Completed"
+role: "Graphics development and algorithms"
+category: "Graphics and algorithms"
 code: "3D"
 stack:
   - C
@@ -16,21 +16,21 @@ repo_url: "https://github.com/esettes/FDF"
 demo_url: ""
 cover: "/assets/images/projects/FDF.png"
 ---
-## El proyecto
+## The project
 
-FDF transforma un archivo de alturas en una malla navegable. Cada número representa la
-coordenada Z de un punto y el programa proyecta la escena sobre una ventana 2D.
+FDF transforms a height map file into a navigable mesh. Each number represents the Z
+coordinate of a point, and the program projects the scene onto a 2D window.
 
-## Implementación
+## Implementation
 
-- Lectura y validación del mapa de entrada.
-- Algoritmo de Bresenham para rasterizar cada segmento.
-- Proyección isométrica mediante transformaciones trigonométricas.
-- Zoom, traslación, rotación y escalado de altura.
-- Gradientes de color según profundidad y relieve.
+- Input map parsing and validation.
+- Bresenham's algorithm to rasterize each segment.
+- Isometric projection through trigonometric transformations.
+- Zoom, translation, rotation, and height scaling.
+- Color gradients based on depth and elevation.
 
-## Resultado
+## Result
 
-El proyecto combina programación en C, gestión manual de memoria, matemáticas y un bucle
-gráfico interactivo. Dentro del portfolio aporta una muestra visual del trabajo de bajo
-nivel y de la capacidad para convertir datos en una representación explorable.
+The project combines C programming, manual memory management, mathematics, and an
+interactive graphics loop. It provides a visual example of low-level work and of turning
+data into an explorable representation.

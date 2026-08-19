@@ -1,11 +1,11 @@
 ---
-title: "Compute shaders con Vulkan"
+title: "Compute shaders with Vulkan"
 priority: 6
 date: 2023-04-01
-excerpt: "Experimento de computación GPU que genera un fractal y compara el mismo trabajo ejecutado en CPU y mediante un compute shader."
-status: "Experimento técnico"
-role: "Implementación y documentación de aprendizaje"
-category: "GPU y bajo nivel"
+excerpt: "GPU computing experiment that generates a fractal and compares the same workload on a CPU and a compute shader."
+status: "Technical experiment"
+role: "Implementation and learning documentation"
+category: "GPU and low-level programming"
 code: "GPU"
 stack:
   - C++
@@ -16,21 +16,20 @@ repo_url: "https://github.com/esettes/compute_shader_vulkan"
 demo_url: ""
 cover: "/assets/images/projects/Compute shaders con Vulkan.png"
 ---
-## Objetivo
+## Goal
 
-Comprender el coste y el control explícito de Vulkan al ejecutar computación general en
-GPU, siguiendo una inicialización completa del dispositivo y del pipeline de compute.
+Understand Vulkan's cost and explicit control model when running general-purpose GPU
+computing, including complete device and compute pipeline initialization.
 
-## Experimento
+## Experiment
 
-El programa genera un fractal de 1000 por 1000 píxeles mediante dos implementaciones
-equivalentes. En la ejecución documentada en el repositorio, la CPU necesitó 285 ms y la
-GPU 4 ms. El resultado no pretende ser un benchmark universal, sino una demostración
-práctica del paralelismo disponible para este tipo de carga.
+The program generates a 1000 by 1000 pixel fractal through two equivalent implementations.
+In the run documented in the repository, the CPU took 285 ms and the GPU took 4 ms. This
+result is not presented as a universal benchmark, but as a practical demonstration of the
+parallelism available for this workload.
 
-## Aprendizaje
+## What I learned
 
-El proyecto parte de un curso de computación GPU con Vulkan y documenta el proceso de
-inicialización, selección de memoria, creación de buffers, descriptores y sincronización.
-Se presenta como experimento formativo, diferenciándolo de los proyectos originales del
-portfolio.
+The project follows a Vulkan GPU computing course and documents initialization, memory
+selection, buffer creation, descriptors, and synchronization. It is presented as a learning
+experiment and kept distinct from the portfolio's original projects.

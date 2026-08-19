@@ -1,12 +1,11 @@
 name: "Roxana Stancu"
-role: "Desarrolladora de software"
+role: "Software developer"
 intro: >-
-  Soy desarrolladora de software enfocada en backend, automatización y sistemas.
-  Trabajo con Python, C/C++, TypeScript, Linux, APIs y redes, prestando especial
-  atención al testing, la legibilidad y la documentación técnica.
-current: "Actualmente realizo prácticas como Full-Stack Developer en 42 Madrid."
+  I am a software developer focused on backend development, automation, and systems.
+  I work with Python, C/C++, TypeScript, Linux, APIs, and networking, with particular
+  attention to testing, readability, and technical documentation.
 email: "ioanaroxana.st@gmail.com"
 github: "https://github.com/esettes"
 linkedin: "https://www.linkedin.com/in/roxana-stancu-dev/"
 cv: "/assets/cv/Roxana_Stancu.pdf"
-location: "Madrid, España"
+location: "Madrid, Spain"

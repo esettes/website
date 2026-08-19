@@ -1,13 +1,13 @@
-title: "Roxana Stancu | Desarrolladora de software"
+title: "Roxana Stancu | Software Developer"
 email: "ioanaroxana.st@gmail.com"
 author: "Roxana Stancu"
 description: >-
-  Portfolio y blog técnico de Roxana Stancu sobre backend, automatización,
-  sistemas, Linux, redes y desarrollo de software.
+  Roxana Stancu's portfolio and technical blog about backend development,
+  automation, systems, Linux, networking, and software development.
 baseurl: "/website"
 url: "https://esettes.github.io"
 repository: "esettes/website"
-lang: es
+lang: en
 timezone: Europe/Madrid
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title/

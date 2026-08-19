@@ -1,40 +1,41 @@
 ---
-title: "TCP no entrega mensajes completos: framing en un servidor IRC"
+title: "TCP does not deliver complete messages: framing in an IRC server"
 date: 2026-08-18 19:00:00 +0200
-excerpt: "Por qué recv() puede devolver medio comando o varios a la vez, y cómo reconstruir líneas IRC sin perder datos."
-description: "Una explicación práctica del buffering y el framing de mensajes IRC sobre TCP."
+excerpt: "Why recv() can return half a command or several commands at once, and how to reconstruct IRC lines without losing data."
+description: "A practical explanation of buffering and IRC message framing over TCP."
 author: "Roxana Stancu"
+cover: "/assets/images/blog/tcp.png"
 ---
-Cuando probamos un servidor IRC con `netcat`, es fácil asumir que cada vez que pulsamos
-Enter el servidor recibirá exactamente un comando. TCP no ofrece esa garantía.
+When testing an IRC server with `netcat`, it is easy to assume that every press of Enter
+will deliver exactly one command to the server. TCP provides no such guarantee.
 
-TCP transporta un **flujo ordenado de bytes**. Conserva el orden y permite detectar el
-cierre de la conexión, pero no conoce los límites lógicos de los mensajes IRC.
+TCP transports an **ordered stream of bytes**. It preserves order and lets us detect when
+the connection closes, but it does not know the logical boundaries of IRC messages.
 
 <!--more-->
 
-## Tres resultados válidos de recv()
+## Three valid recv() results
 
-Si el cliente envía:
+If the client sends:
 
 ```text
 NICK rox\r\n
 USER roxana 0 * :Roxana Stancu\r\n
 ```
 
-el servidor podría recibir:
+the server could receive:
 
-1. Los dos comandos en una sola llamada.
-2. Un comando por llamada.
-3. Fragmentos como `NI`, `CK rox\r\nUSER ro` y el resto más tarde.
+1. Both commands in one call.
+2. One command per call.
+3. Fragments such as `NI`, `CK rox\r\nUSER ro`, and the remainder later.
 
-Los tres casos son correctos desde el punto de vista de TCP. Por eso no debemos ejecutar
-directamente todo lo que devuelve `recv()` como si fuese un mensaje completo.
+All three cases are valid from TCP's perspective. We therefore must not process everything
+returned by `recv()` as though it were a complete message.
 
-## Un buffer persistente por cliente
+## A persistent buffer for each client
 
-Cada conexión necesita conservar los bytes que todavía no forman una línea completa. El
-algoritmo conceptual es:
+Each connection must preserve the bytes that do not yet form a complete line. The
+conceptual algorithm is:
 
 ```text
 append received bytes to the client buffer
@@ -45,30 +46,30 @@ while the buffer contains CRLF
 keep the remaining partial data for the next read event
 ```
 
-El detalle importante es el último paso. El fragmento restante no es un error ni debe
-descartarse: puede ser el principio del siguiente comando.
+The last step is important. The remaining fragment is not an error and must not be
+discarded: it may be the beginning of the next command.
 
-## Varias líneas en la misma lectura
+## Multiple lines in one read
 
-Procesar solo la primera línea tampoco basta. Cuando llegan varios comandos juntos, el
-servidor debe seguir extrayendo líneas hasta que el buffer ya no contenga un terminador
-completo. El orden de procesamiento tiene que ser el mismo que el orden recibido.
+Processing only the first line is also insufficient. When several commands arrive together,
+the server must keep extracting lines until the buffer no longer contains a complete
+terminator. Processing order must match receive order.
 
-Esto explica un fallo frecuente: las pruebas manuales funcionan comando a comando, pero
-fallan al pegar un bloque completo de registro. El problema no está necesariamente en
-`PASS`, `NICK` o `USER`; puede estar en la capa que separa el flujo TCP en líneas IRC.
+This explains a common bug: manual tests work command by command but fail when a complete
+registration block is pasted. The problem is not necessarily in `PASS`, `NICK`, or `USER`;
+it may be in the layer that separates the TCP stream into IRC lines.
 
-## Límites y seguridad
+## Limits and safety
 
-Un buffer sin límites permitiría que un cliente enviase datos indefinidamente sin cerrar
-una línea. Una implementación robusta debe definir:
+An unbounded buffer would allow a client to send data indefinitely without completing a
+line. A robust implementation must define:
 
-- Longitud máxima aceptada para una línea IRC.
-- Tamaño máximo del buffer pendiente.
-- Comportamiento ante datos inválidos o una conexión cerrada a mitad de mensaje.
-- Pruebas para fragmentación, concatenación y escrituras parciales.
+- The maximum accepted IRC line length.
+- The maximum pending buffer size.
+- Behavior for invalid data or a connection closed midway through a message.
+- Tests for fragmentation, concatenation, and partial writes.
 
-## La idea que conviene recordar
+## The key idea
 
-Los protocolos orientados a líneas viven encima de TCP, pero sus mensajes no coinciden
-con las lecturas del socket. El framing es responsabilidad de la aplicación.
+Line-oriented protocols run on top of TCP, but their messages do not align with socket
+reads. Framing is the application's responsibility.

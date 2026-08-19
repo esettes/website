@@ -2,10 +2,10 @@
 title: "pic16cc"
 priority: 3
 date: 2026-08-15
-excerpt: "Compilador experimental escrito en Rust que transforma un subconjunto de C en firmware Intel HEX e incluye un simulador de CPU."
-status: "Experimental · En desarrollo"
-role: "Arquitectura, desarrollo, testing y documentación"
-category: "Compiladores y sistemas embebidos"
+excerpt: "Experimental compiler written in Rust that transforms a subset of C into Intel HEX firmware and includes a CPU simulator."
+status: "Experimental · In development"
+role: "Architecture, development, testing, and documentation"
+category: "Compilers and embedded systems"
 code: "C→HEX"
 stack:
   - Rust
@@ -17,40 +17,40 @@ repo_url: "https://github.com/esettes/PIC16_compiler"
 demo_url: ""
 cover: "/assets/images/projects/pic16cc.png"
 ---
-## El problema
+## The problem
 
-Los microcontroladores PIC16 trabajan con recursos muy limitados y suelen depender de
-toolchains específicas. Este proyecto explora cómo construir una cadena de compilación
-comprensible de principio a fin, desde código C hasta un archivo listo para programar.
+PIC16 microcontrollers operate with very limited resources and usually depend on specific
+toolchains. This project explores how to build an understandable compilation pipeline from
+end to end, from C source code to a file ready for programming.
 
-## La solución
+## The solution
 
-`pic16cc` compila un subconjunto de C directamente a Intel HEX sin necesitar un
-ensamblador externo. El repositorio incluye dos herramientas:
+`pic16cc` compiles a subset of C directly to Intel HEX without requiring an external
+assembler. The repository includes two tools:
 
-- `picc`, responsable de analizar, optimizar y generar el firmware.
-- `pic16-sim`, un simulador para ejecutar y comprobar el resultado sin hardware.
+- `picc`, which parses, optimizes, and generates the firmware.
+- `pic16-sim`, a simulator that runs and verifies the result without hardware.
 
-El flujo completo queda así:
+The complete flow is:
 
 ```text
-Código C -> frontend -> optimización -> código máquina -> firmware.hex
-                                                     -> simulador PIC16
+C source -> frontend -> optimization -> machine code -> firmware.hex
+                                                     -> PIC16 simulator
 ```
 
-## Decisiones técnicas
+## Technical decisions
 
-- Arquitectura por etapas para poder probar cada fase de forma independiente.
-- Generación adicional de mapas de símbolos y listados de instrucciones.
-- Perfiles configurables para equilibrar tamaño de código y funcionalidad.
-- Validación final del archivo HEX antes de considerarlo una salida correcta.
-- Documentación explícita de las limitaciones del subconjunto de C soportado.
+- A staged architecture so each phase can be tested independently.
+- Additional symbol maps and instruction listings.
+- Configurable profiles that balance code size and functionality.
+- Final HEX file validation before accepting it as correct output.
+- Explicit documentation of the supported C subset limitations.
 
-## Resultado actual
+## Current result
 
-El compilador soporta dos dispositivos PIC16, tipos enteros, estructuras, arrays,
-interrupciones y un conjunto limitado de operaciones en coma flotante. Sigue siendo
-experimental y no pretende sustituir una toolchain de producción.
+The compiler supports two PIC16 devices, integer types, structures, arrays, interrupts,
+and a limited set of floating-point operations. It remains experimental and is not intended
+to replace a production toolchain.
 
-Este proyecto demuestra diseño de compiladores, arquitectura de sistemas, testing y
-capacidad para trabajar cerca del hardware sin esconder las limitaciones reales.
+This project demonstrates compiler design, systems architecture, testing, and work close
+to the hardware without hiding its current limitations.

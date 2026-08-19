@@ -1,7 +1,7 @@
 <article class="project-entry">
   {% if include.project.cover %}
     <a class="project-media" href="{{ include.project.url | relative_url }}">
-      <img src="{{ include.project.cover | relative_url }}" alt="Vista previa de {{ include.project.title }}">
+      <img src="{{ include.project.cover | relative_url }}" alt="Preview of {{ include.project.title }}">
     </a>
   {% else %}
     <div class="project-media media-placeholder" aria-hidden="true"></div>
@@ -11,13 +11,13 @@
   </h2>
   <p>{{ include.project.excerpt | default: include.project.content | strip_html | strip_newlines | truncate: 180 }}</p>
   {% if include.project.stack %}
-    <p class="project-technologies"><strong>Tecnologías:</strong> {{ include.project.stack | join: " · " }}</p>
+    <p class="project-technologies"><strong>Technologies:</strong> {{ include.project.stack | join: " · " }}</p>
   {% endif %}
   {% if include.project.status %}
-    <p class="project-status"><strong>Estado:</strong> {{ include.project.status }}</p>
+    <p class="project-status"><strong>Status:</strong> {{ include.project.status }}</p>
   {% endif %}
   <p class="entry-links">
-    <a href="{{ include.project.url | relative_url }}">Ver detalle</a>
+    <a href="{{ include.project.url | relative_url }}">View details</a>
     {% if include.project.repo_url != blank %}
       <span aria-hidden="true"> · </span>
       <a href="{{ include.project.repo_url }}" target="_blank" rel="noopener noreferrer">GitHub</a>

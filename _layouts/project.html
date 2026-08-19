@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="shell article-layout">
-  <a href="{{ '/projects/' | relative_url }}">← Volver a proyectos</a>
+  <a href="{{ '/projects/' | relative_url }}">← Back to projects</a>
   <header class="article-header">
     <h1>{{ page.title }}</h1>
     <p class="detail-meta">
@@ -17,18 +17,18 @@ layout: default
       <p class="page-description">{{ page.excerpt }}</p>
     {% endif %}
     {% if page.stack %}
-      <p><strong>Tecnologías:</strong> {{ page.stack | join: " · " }}</p>
+      <p><strong>Technologies:</strong> {{ page.stack | join: " · " }}</p>
     {% endif %}
     {% if page.repo_url != blank %}
       <p>
-        <a href="{{ page.repo_url }}" target="_blank" rel="noopener noreferrer">Repositorio en GitHub</a>
+        <a href="{{ page.repo_url }}" target="_blank" rel="noopener noreferrer">GitHub repository</a>
       </p>
     {% endif %}
   </header>
 
   {% if page.cover %}
     <figure class="project-detail-media">
-      <img src="{{ page.cover | relative_url }}" alt="Vista previa de {{ page.title }}">
+      <img src="{{ page.cover | relative_url }}" alt="Preview of {{ page.title }}">
     </figure>
   {% else %}
     <div class="project-detail-media media-placeholder" aria-hidden="true"></div>

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: About me
-description: Perfil profesional de Roxana Stancu, desarrolladora de software en Madrid.
+description: Professional profile of Roxana Stancu, a software developer based in Madrid.
 permalink: /
 ---
 {% assign profile = site.data.profile %}
@@ -10,12 +10,14 @@ permalink: /
     <p class="about-role">{{ profile.role }}</p>
     <h1>{{ profile.name }}</h1>
     <p class="about-intro">{{ profile.intro }}</p>
-    <p>{{ profile.current }}</p>
+    {% if profile.current %}
+      <p>{{ profile.current }}</p>
+    {% endif %}
     <p class="location">{{ profile.location }}</p>
   </header>
 
   <section class="about-section" aria-labelledby="contact-heading">
-    <h2 id="contact-heading">Contacto</h2>
+    <h2 id="contact-heading">Contact</h2>
     <ul class="contact-list">
       <li>
         <strong>Email:</strong>
@@ -36,14 +38,14 @@ permalink: /
       <li>
         <a href="{{ profile.cv | relative_url }}" download>
           <img class="professional-icon" src="{{ '/assets/images/icons/media/cv.svg' | relative_url }}" alt="">
-          Currículum
+          CV
         </a>
       </li>
     </ul>
   </section>
 
   <section class="about-section" aria-labelledby="technologies-heading">
-    <h2 id="technologies-heading">Tecnologías</h2>
+    <h2 id="technologies-heading">Technologies</h2>
     <ul class="technology-list">
       {% assign technology_icons = site.static_files | sort: 'path' %}
       {% for icon in technology_icons %}

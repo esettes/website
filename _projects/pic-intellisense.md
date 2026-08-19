@@ -2,9 +2,9 @@
 title: "PIC IntelliSense"
 priority: 4
 date: 2026-08-12
-excerpt: "Extensión en TypeScript con autocompletado, hover e importación automática de metadatos para desarrollo C orientado a PIC."
-status: "En desarrollo"
-role: "Diseño de producto, extensión, tooling y pruebas"
+excerpt: "TypeScript extension with completion, hover documentation, and automatic metadata imports for PIC-oriented C development."
+status: "In development"
+role: "Product design, extension development, tooling, and testing"
 category: "Developer tooling"
 code: "PIC++"
 stack:
@@ -17,32 +17,32 @@ repo_url: "https://github.com/esettes/PIC_Intellisense"
 demo_url: ""
 cover: "/assets/images/projects/PIC IntelliSense.png"
 ---
-## El problema
+## The problem
 
-El desarrollo para PIC utiliza registros y cabeceras específicos de cada dispositivo.
-Mantener manualmente completions y documentación para cada modelo no es escalable.
+PIC development uses registers and headers specific to each device. Manually maintaining
+completions and documentation for every model does not scale.
 
-## La solución
+## The solution
 
-Una extensión de Visual Studio Code que aporta:
+A Visual Studio Code extension that provides:
 
-- Autocompletado de registros y helpers habituales.
-- Documentación contextual mediante hover.
-- Snippets para flujos comunes de inicialización.
-- Filtrado según el dispositivo seleccionado.
-- Herramientas para importar metadatos desde headers XC8 o Device Family Packs locales.
+- Completion for registers and common helpers.
+- Contextual hover documentation.
+- Snippets for common initialization flows.
+- Filtering based on the selected device.
+- Tools for importing metadata from local XC8 headers or Device Family Packs.
 
-## Arquitectura
+## Architecture
 
-La extensión separa providers, modelos, datos manuales, datos generados y tooling de
-importación. Los datos curados tienen prioridad sobre los generados, lo que permite
-automatizar la cobertura sin perder explicaciones escritas a mano.
+The extension separates providers, models, manually curated data, generated data, and
+import tooling. Curated data takes precedence over generated data, allowing broader
+coverage without losing hand-written explanations.
 
-El comando de configuración detecta instalaciones de XC8, valida sus rutas y crea o
-combina una configuración `c_cpp_properties.json` sin destruir configuraciones previas.
+The configuration command detects XC8 installations, validates their paths, and creates
+or merges a `c_cpp_properties.json` configuration without destroying existing settings.
 
-## Calidad y límites
+## Quality and limitations
 
-El proyecto incluye compilación, lint, tests y empaquetado VSIX. El importador usa un
-parser basado en expresiones regulares y documenta los dialectos de cabeceras que aún
-no cubre. Esa limitación se trata como una frontera de producto, no como un detalle oculto.
+The project includes compilation, linting, tests, and VSIX packaging. The importer uses a
+regular-expression parser and documents the header dialects it does not yet support. This
+limitation is treated as a product boundary rather than a hidden implementation detail.

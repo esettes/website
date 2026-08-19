@@ -2,10 +2,10 @@
 title: "ft_irc"
 priority: 1
 date: 2026-08-10
-excerpt: "Servidor IRC en C++98 capaz de gestionar múltiples clientes mediante sockets no bloqueantes y un único bucle poll."
-status: "En desarrollo · 42 Madrid"
-role: "Backend, protocolo IRC, canales y testing"
-category: "Backend y networking"
+excerpt: "Non-blocking IRC server in C++98 that handles multiple clients through a single poll loop."
+status: "In development · 42 Madrid"
+role: "Backend, IRC protocol, channels, and testing"
+category: "Backend and networking"
 code: "IRC"
 stack:
   - C++98
@@ -17,33 +17,33 @@ repo_url: "https://github.com/esettes/42-ft_irc"
 demo_url: ""
 cover: "/assets/images/projects/ft_irc.png"
 ---
-## El reto
+## The challenge
 
-Construir un servidor compatible con un cliente IRC real, sin threads ni procesos
-adicionales y usando un único `poll()` para aceptar conexiones, recibir datos y enviar
-respuestas a varios clientes simultáneamente.
+Build a server compatible with a real IRC client, without threads or additional processes,
+using a single `poll()` call to accept connections, receive data, and send responses to
+multiple clients simultaneously.
 
-## Trabajo técnico
+## Technical work
 
-El servidor mantiene estado por cliente, reconstruye líneas completas a partir del flujo
-TCP, interpreta comandos y genera respuestas con el formato del protocolo IRC.
+The server keeps state for each client, reconstructs complete lines from the TCP stream,
+interprets commands, and generates responses in the IRC protocol format.
 
-Entre las áreas trabajadas se encuentran:
+The work covers:
 
-- Registro mediante `PASS`, `NICK` y `USER`.
-- Buffers de entrada y salida para operaciones parciales.
-- Mensajes numéricos y prefijos IRC.
-- Modelo de canales y pertenencia de clientes.
-- Comandos de canal como `JOIN`, `TOPIC`, `INVITE`, `KICK` y `MODE`.
-- Pruebas con clientes reales, `netcat` y casos automatizados.
+- Registration through `PASS`, `NICK`, and `USER`.
+- Input and output buffers for partial operations.
+- Numeric replies and IRC prefixes.
+- A channel and client membership model.
+- Channel commands such as `JOIN`, `TOPIC`, `INVITE`, `KICK`, and `MODE`.
+- Tests with real clients, `netcat`, and automated cases.
 
-## Una decisión importante
+## A key decision
 
-TCP no conserva los límites entre mensajes. Una llamada a `recv()` puede devolver medio
-comando o varios comandos juntos. Por ello cada cliente necesita un buffer persistente
-y el servidor solo procesa una orden cuando encuentra su terminador `\r\n`.
+TCP does not preserve message boundaries. A `recv()` call can return half a command or
+several commands together. Each client therefore needs a persistent buffer, and the server
+only processes a command after finding its `\r\n` terminator.
 
-## Estado
+## Status
 
-El proyecto se desarrolla en equipo y continúa en implementación. La documentación del
-portfolio se actualizará a medida que los comandos de canal y sus pruebas queden cerrados.
+This is a team project and remains in development. The portfolio documentation will be
+updated as the channel commands and their tests are completed.
